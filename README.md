@@ -7,4 +7,5 @@ When it comes to individual stocks, there are lot of metrics for fundamental ana
 
 FFAT aims to bring those metrics to funds. It works by breaking down the individiual equity holdings of fund, collecting their metrics and then calculating the median of them.  
  
-Currently it supports the following metrics: P/E, P/B, D/E, ROE, OPM.
+Currently it supports the following metrics: Forward P/E, P/E, P/B, D/E, ROE, OPM.
+
