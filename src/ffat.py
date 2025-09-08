@@ -7,7 +7,7 @@ def getFundEquityHoldings(fund_id: str):
 
 
 def parse_args():
-    parser = argparse.ArgumentParser(description="Require fund-id and metric.")
+    parser = argparse.ArgumentParser(description="Fund Fundamental Analysis Tool(FFAT)")
     parser.add_argument(
         "--fund-id",
         required=True,
@@ -21,7 +21,8 @@ def parse_args():
     return parser.parse_args()
 def main():
     args = parse_args()
-    metric = Metrics.pe.value # Add any value from Metrics enum
+    # metric = Metrics.pe.value # Add any value from Metrics enum
+    metric = Metrics[args.metric.lower()].value
     fund_holdings = getFundEquityHoldings(args.fund_id)
     t_metrics = [getMetric(h, metric) for h in fund_holdings]
     t_metrics = [0 if x is None else x for x in t_metrics] # Replace None with Zero
