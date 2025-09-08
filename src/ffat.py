@@ -5,8 +5,9 @@ import argparse
 def getFundEquityHoldings(fund_id: str):
     return list(yf.Ticker(fund_id).funds_data.top_holdings.index)
 
-
 def parse_args():
+
+    # supported_metrics = [members.name for member in Metrics]
     parser = argparse.ArgumentParser(description="Fund Fundamental Analysis Tool(FFAT)")
     parser.add_argument(
         "--fund-id",
@@ -16,9 +17,11 @@ def parse_args():
     parser.add_argument(
         "--metric",
         required=True,
-        help="Metric name"
+        help="Metric name",
+        choices = [m.name for m in Metrics]
     )
     return parser.parse_args()
+
 def main():
     args = parse_args()
     metric = Metrics[args.metric.lower()].value
@@ -31,3 +34,6 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+
+
