@@ -11,17 +11,16 @@ def parse_args():
     parser.add_argument(
         "--fund-id",
         required=True,
-        help="Fund identifier"
+        help="Fund identifier or Symbol in case of ETF"
     )
     parser.add_argument(
         "--metric",
-        # required=True,
+        required=True,
         help="Metric name"
     )
     return parser.parse_args()
 def main():
     args = parse_args()
-    # metric = Metrics.pe.value # Add any value from Metrics enum
     metric = Metrics[args.metric.lower()].value
     fund_holdings = getFundEquityHoldings(args.fund_id)
     t_metrics = [getMetric(h, metric) for h in fund_holdings]
