@@ -22,3 +22,7 @@ First step would be to create columns for each metric. From that a formula can b
 This method completely avoids API calls to get fund holdings. The results are also stored in a standard format. 
 
 However this can not be fully automated as AMCs do not adhere to a strict format when disclosing holdings. There are variations in cases, titles, formatting, colors and columns. Also none of common tools including, `=GOOGLEFINANCE`, `=STOCKHISTORY` or Yfinance **support querying through ISIN**. A local mapping database, or an API would be required.
+
+An example with a BANKNIFTY Index Fund disclosure xlsx file, and clean up script is provided in _off-disc_ directory.
+
+
