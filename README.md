@@ -15,14 +15,18 @@ Currently it supports the following metrics: Forward P/E, P/E, P/B, D/E, ROE, OP
 
 ## Alternative Approach using Official Portfolio Disclosure
 
-Another way to achieve this would be to work from the official XLSX portfolio disclosure file. 
+Another way to achieve this would be to work from the official portfolio disclosure document.  
 
-First step would be to create columns for each metric. From that a formula can be created to fetch the metric by refrencing ISIN column. Then it can be duplicated to rest of cells. From there, median and other metrics can be calculated.
+This can not be fully automated as AMCs do not adhere to a strict format when disclosing portfolio holdings. There are variations in cases, titles, formatting, colors and columns, and document format. 
+
+Then drop reduant columns, create columns for each metric using the script provided. 
+
+Then map ISIN to ticker names using an API like OpenFIGI or a local database. As none of common tools including, `=GOOGLEFINANCE`, `=STOCKHISTORY` or Yfinance **support querying through ISIN**.
+
+From that a formula can be created to fetch the metric by refrencing the ticker column. And then it can be duplicated to rest of cells. From there, median and other metrics can be calculated.
 
 This method completely avoids API calls to get fund holdings. The results are also stored in a standard format. 
 
-However this can not be fully automated as AMCs do not adhere to a strict format when disclosing holdings. There are variations in cases, titles, formatting, colors and columns. Also none of common tools including, `=GOOGLEFINANCE`, `=STOCKHISTORY` or Yfinance **support querying through ISIN**. A local mapping database, or an API would be required.
-
-An example with a BANKNIFTY Index Fund disclosure xlsx file, and clean up script is provided in _off-disc_ directory.
+An example built upon a BANKNIFTY Index Fund's Excel file, is provided in _off-disc_ directory.
 
 
