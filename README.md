@@ -2,7 +2,7 @@
 
 Fund Fundamental Analysis Tool(FFAT) is a CLI, Python tool for fundamental analysis of funds such as mutual fund, ETFs.
 
-Please sign this [petition on change.org]() regarding mandating disclosing fundamental metrics of funds.
+Please sign this [petition on change.org](https://www.change.org/p/mandate-disclosing-fundamental-metrics-of-funds-in-monthly-disclosures) regarding mandating disclosing fundamental metrics of funds.
 
 ## Why Use It?
 
@@ -19,14 +19,14 @@ Another way to achieve this would be to work from the official portfolio disclos
 
 This can not be fully automated as AMCs do not adhere to a strict format when disclosing portfolio holdings. There are variations in cases, titles, formatting, colors and columns, and document format. 
 
-Then drop reduant columns, create columns for each metric using the script provided. 
+Manually copy relevant data from it into a different sheet. Then drop reduant columns, create columns for each metric using the script provided. 
 
-Then map ISIN to ticker names using an API like OpenFIGI or a local database. As none of common tools including, `=GOOGLEFINANCE`, `=STOCKHISTORY` or Yfinance **support querying through ISIN**.
+Then map ISIN to ticker names using an API like OpenFIGI, local database, or convert the names into _stock data type_ in Excel. As none of common tools including, `=GOOGLEFINANCE`, `=STOCKHISTORY` or Yfinance **support querying through ISIN**.
 
 From that a formula can be created to fetch the metric by refrencing the ticker column. And then it can be duplicated to rest of cells. From there, median and other metrics can be calculated.
 
 This method completely avoids API calls to get fund holdings. The results are also stored in a standard format. 
 
-An example built upon a BANKNIFTY Index Fund's Excel file, is provided in _off-disc_ directory.
+A Google Sheets example built upon a BANKNIFTY Index Fund's XLSX, is provided in _off-disc_ directory.
 
 
