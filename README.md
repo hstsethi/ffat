@@ -21,7 +21,7 @@ This can not be fully automated as AMCs do not adhere to a strict format when di
 
 Manually copy relevant data from it into a different sheet. Then drop reduant columns, create columns for each metric using the script provided. 
 
-Then map ISIN to ticker names using an API like OpenFIGI, local database, or convert the names into _stock data type_ in Excel. As none of common tools including, `=GOOGLEFINANCE`, `=STOCKHISTORY` or Yfinance **support querying through ISIN**.
+Then map ISIN to ticker names using an API like OpenFIGI, [local database like in-isin-db](https://github.com/hstsethi/in-isin-db) or convert the names into _stock data type_ in Excel. As none of common tools including, `=GOOGLEFINANCE`, `=STOCKHISTORY` or Yfinance **support querying through ISIN**.
 
 From that a formula can be created to fetch the metric by refrencing the ticker column. And then it can be duplicated to rest of cells. From there, median and other metrics can be calculated.
 
