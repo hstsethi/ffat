@@ -19,9 +19,11 @@ Another way to achieve this would be to work from the official portfolio disclos
 
 This can not be fully automated as AMCs do not adhere to a strict format when disclosing portfolio holdings. There are variations in cases, titles, formatting, colors and columns, and document format. 
 
-Manually copy relevant data from it into a different sheet. Then drop reduant columns, create columns for each metric using the script provided. 
+Manually copy relevant data from it into a different sheet and drop reduant columns. 
 
-Then map ISIN to ticker names using an API like OpenFIGI, [local database like in-isin-db](https://github.com/hstsethi/in-isin-db) or convert the names into _stock data type_ in Excel. As none of common tools including, `=GOOGLEFINANCE`, `=STOCKHISTORY` or Yfinance **support querying through ISIN**.
+Use the script provided normalize column names, create columns for each metric.
+
+Then map ISIN to symbol using [local database like in-isin-db](https://github.com/hstsethi/in-isin-db) and script provided. As none of common tools including, `=GOOGLEFINANCE`, `=STOCKHISTORY` or Yfinance **support querying through ISIN**.
 
 From that a formula can be created to fetch the metric by refrencing the ticker column. And then it can be duplicated to rest of cells. From there, median and other metrics can be calculated.
 
