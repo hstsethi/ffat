@@ -1,16 +1,6 @@
 import pandas as pd
-
-def createColumns(disc_file):
-    disc_file[["eps", "pe", "symbol"]] = pd.NA
-    return disc_file
-
-def cleanColumns(disc_file):
-    disc_file.columns = disc_file.columns.str.lower().str.strip()
-    return disc_file
-
-def mapSymbolsToISIN(disc_file, isin_db):
-    merged = pd.merge(disc_file, isin_db, on="isin")
-    return merged
+from map_symbols import mapSymbolsToISIN
+from clean_disc import *
 
 def main():
     disc_file_name = "bank-nifty-ffat.xlsx"
