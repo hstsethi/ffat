@@ -1,6 +1,6 @@
 # ffat
 
-Fund Fundamental Analysis Tool(FFAT) is a CLI, Python tool for fundamental analysis of funds such as mutual fund, ETFs.
+Fund Fundamental Analysis Tools(FFAT) is a set of Python tools for fundamental analysis of mutual fund, ETFs via Yfinance or official portfolio disclosure.
 
 Please sign this [petition on change.org](https://www.change.org/p/mandate-disclosing-fundamental-metrics-of-funds-in-monthly-disclosures) regarding mandating disclosing fundamental metrics of funds.
 
