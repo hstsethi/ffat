@@ -1,7 +1,7 @@
 from statistics import median
 from metrics import get_metric, Metrics
 import argparse
-
+import yfinance as yf
 
 def getFundEquityHoldings(fund_id: str):
     return list(yf.Ticker(fund_id).funds_data.top_holdings.index)
