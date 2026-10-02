@@ -3,7 +3,7 @@ from metrics import get_metric, Metrics
 import argparse
 import yfinance as yf
 
-def getFundEquityHoldings(fund_id: str):
+def get_fund_equity_holdings(fund_id: str):
     return list(yf.Ticker(fund_id).funds_data.top_holdings.index)
 
 
@@ -21,7 +21,7 @@ def parse_args():
 def main():
     args = parse_args()
     metric = Metrics[args.metric.lower()].value
-    fund_holdings = getFundEquityHoldings(args.fund_id)
+    fund_holdings = get_fund_equity_holdings(args.fund_id)
     t_metrics = [get_metric(h, metric) for h in fund_holdings]
     t_metrics = [0 if x is None else x for x in t_metrics]  # Replace None with Zero
     print("holdings: ", fund_holdings)
