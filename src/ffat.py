@@ -3,8 +3,10 @@ from metrics import get_metric, Metrics
 import argparse
 import yfinance as yf
 
-def get_fund_equity_holdings(fund_id: str):
-    return list(yf.Ticker(fund_id).funds_data.top_holdings.index)
+
+def get_fund_equity_holdings(fund_id: str) -> list: 
+    return yf.Ticker(fund_id).funds_data.top_holdings.index.to_list() # Symbols is as an Index. Do not pass the whole Dataframe.
+
 
 
 def parse_args():
@@ -22,9 +24,10 @@ def main():
     args = parse_args()
     metric = Metrics[args.metric.lower()].value
     fund_holdings = get_fund_equity_holdings(args.fund_id)
+    breakpoint()
     t_metrics = [get_metric(h, metric) for h in fund_holdings]
     t_metrics = [0 if x is None else x for x in t_metrics]  # Replace None with Zero
-    print("holdings: ", fund_holdings)
+    # print("holdings: ", fund_holdings)
     print(f"median{metric}: {median(t_metrics)}")
 
 
