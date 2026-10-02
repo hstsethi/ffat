@@ -12,7 +12,10 @@ FFAT aims to bring those metrics to funds. It works by breaking down the individ
  
 Currently it supports the following metrics: Forward P/E, P/E, P/B, D/E, ROE, OPM. 
 
-
+```bash
+$ python ffat.py --fund-id="VOO" --metric="pe"
+    mediantrailingPE: 27.944829
+```
 ## Alternative Approach using Official Portfolio Disclosure
 
 Another way to achieve this would be to work from the official portfolio disclosure document.  
