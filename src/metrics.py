@@ -14,6 +14,12 @@ class Metrics(Enum):
     fcf = "freeCashflow"
 
 
-def get_metric(ticker, metric):
-    # Can Initalize multiple tickers at once and return a single array
-    return yf.Ticker(ticker).info.get(metric)
+
+def get_metrics(fund_holdings: list[str], metric: str) -> list:
+    tickers = yf.Tickers(" ".join(fund_holdings)) # Initialize all tickers at once instead of looping
+    metrics = [
+        tickers.tickers[ticker].info.get(metric)
+        for ticker in fund_holdings
+    ]
+    return metrics 
+
